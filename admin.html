@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Administrativa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .navbar {
+            background-color: #6c757d;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table td, table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center; /* Alinha o texto horizontalmente */
+            vertical-align: middle; /* Centraliza o texto verticalmente */
+        }
+        table tr:hover {
+            background-color: #f1f1f1; /* Adiciona um destaque ao passar o mouse */
+        }
+        .executado {
+            color: green;
+            font-weight: bold;
+        }
+        .nao-executado {
+            color: red;
+            font-weight: bold;
+        }
+        button {
+            background-color: #343A40;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6c757d;
+        }
+        footer {
+            background: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="index.html">Início</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="admin.html">Admin</a>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="container">
+        <h1>Área Administrativa</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Tipo de Projeto</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="contacts-table">
+                <!-- Exemplo de contato -->
+                <tr>
+                    <td>1</td>
+                    <td>João Silva</td>
+                    <td>joao@email.com</td>
+                    <td>(11) 98765-4321</td>
+                    <td>Residencial</td>
+                    <td class="status nao-executado">Não Executado</td>
+                    <td>
+                        <button style="background-color: white; color: black" onclick="markAsExecuted(this)">Marcar como Executado</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria Oliveira</td>
+                    <td>maria@email.com</td>
+                    <td>(21) 91234-5678</td>
+                    <td>Comercial</td>
+                    <td class="status nao-executado">Não Executado</td>
+                    <td>
+                        <button style="background-color: white; color: black" onclick="markAsExecuted(this)">Marcar como Executado</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function markAsExecuted(button) {
+            const row = button.closest('tr'); // Encontra a linha do botão
+            const statusCell = row.querySelector('.status'); // Encontra a célula de status
+            if (statusCell.textContent == 'Executado') {
+                statusCell.textContent = 'Não executado'; // Atualiza o texto
+                statusCell.classList.add('nao-executado');
+                statusCell.classList.remove('executado');
+                button.textContent = 'Marcar como executado'; // Atualiza o texto do botão
+            } else {
+                statusCell.textContent = 'Executado'; // Atualiza o texto
+                statusCell.classList.remove('nao-executado');
+                statusCell.classList.add('executado');
+                button.textContent = 'Marcar como não executado'; // Atualiza o texto do botão
+            }
+            
+        }
+    </script>
+</body>
+</html>

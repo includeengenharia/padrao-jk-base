@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Elegante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .navbar {
+            background-color: #6c757d;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .capa {
+            background: #6c757d;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .secao-branco, .carrossel, .depoimentos, .contato {
+            background: #ffffff;
+            padding: 150px 0;
+            text-align: center;
+            margin: 0;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .contato {
+            background: #e9ecef;
+            color: #333;
+            padding: 150px 0;
+        }
+        .formulario {
+            padding: 20px;
+        }
+        .imagem-ou-frase img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .carrossel {
+            display: flex;
+            flex-direction: column;
+            overflow-x: auto;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15px;
+            background: #6c757d;
+        }
+        .carrossel div {
+            min-width: 300px;
+            height: 300px;
+            width: 800px;
+            background-color: #e9ecef;
+            margin-right: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        footer {
+            background: #343a40;
+            color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .ver-mais {
+            text-align: center; /* Centraliza o botão */
+            margin: 20px 0; /* Espaçamento superior e inferior */
+        }
+        .ver-mais a {
+            display: inline-block;
+            padding: 15px 30px; /* Espaçamento interno */
+            background-color: #343a40; /* Cor de fundo do botão */
+            color: white; /* Cor do texto */
+            text-decoration: none; /* Remove o sublinhado */
+            border-radius: 5px; /* Bordas arredondadas */
+            transition: background-color 0.3s; /* Efeito de transição */
+        }
+        .ver-mais a:hover {
+            background-color: #343a40; /* Cor do botão ao passar o mouse */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/b5f99dbe-c629-45ce-9aec-fb3afbac9fb1-loader.js" ></script>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="index.html">Início</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="admin.html">Admin</a>
+    </div>
+
+    <!-- CAPA -->
+    <div class="capa" id="capa">
+        <div class="container">
+            <h1>JK | Engenharia, Arquitetura e Interiores</h1>
+            <p>Vamos construir o seu projeto juntos</p>
+        </div>
+    </div>
+
+    <!-- SEÇÃO EM BRANCO COM TEXTO -->
+    <div class="secao-branco" id="sobre">
+        <div class="container">
+            <h2>Sobre Nós</h2>
+            <p>Aqui você pode adicionar informações sobre sua empresa, produtos ou serviços. Aproveite para engajar seu público!</p>
+        </div>
+    </div>
+
+    <!-- CARROSSEL COM DIVS -->
+    <div class="carrossel" id="carrossel">
+        <br>
+        <div class="carrossel-images">
+            Carrossel de imagens
+        </div>
+
+        <!-- BOTÃO PARA VER MAIS PACOTES DE VIAGEM -->
+        <spam class="ver-mais">
+            <a href="./projetos.html">Ver porfólio</a>
+        </spam>
+    </div>
+
+
+    <!-- TEXTOS DE DEPOIMENTOS -->
+    <div class="depoimentos" id="depoimentos">
+        <div class="container">
+            <h2>O que nossos clientes dizem</h2>
+            <p>"Um ótimo trabalho!" - Cliente A</p>
+            <p>"Serviço de alta qualidade e suporte excepcional." - Cliente B</p>
+        </div>
+    </div>
+
+
+    <!-- PAGINA PARA ENTRAR EM CONTATO -->
+    <div class="contato" id="contato">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+            <!-- Formulário de Briefing -->
+            <div class="formulario" style="flex: 1; padding: 20px;">
+                <br>
+                <h2>Solicite um orçamento</h2>
+                <form action="/enviar-briefing" method="post">
+                    <div>
+                        <label for="nome" style="display: block; font-weight: bold;">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
+                    <div>
+                        <label for="email" style="display: block; font-weight: bold;">E-mail</label>
+                        <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
+                    <div>
+                        <label for="telefone" style="display: block; font-weight: bold;">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    </div>
+                    <div>
+                        <label for="tipo-projeto" style="display: block; font-weight: bold;">Tipo de Projeto</label>
+                        <select id="tipo-projeto" name="tipo-projeto" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                            <option value="">Selecione...</option>
+                            <option value="residencial">Residencial</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="industrial">Industrial</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="detalhes" style="display: block; font-weight: bold;">Detalhes do Projeto</label>
+                        <textarea id="detalhes" name="detalhes" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" style="background-color: #343A40; color: white; border: none; border-radius: 5px; cursor: pointer;">Enviar</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Imagem ou Frase Motivacional -->
+            <div class="imagem-ou-frase" style="flex: 1; text-align: center; padding: 20px;">
+                <img src="https://construindocasas.com.br/wp-content/uploads/2021/05/Capa-Etapas-de-uma-obra-min-1024x576.jpg" 
+                     alt="Descrição da imagem" 
+                     style="max-width: 100%; height: auto; border-radius: 10px;">
+                <p style="font-size: 24px; margin-top: 20px;">"Construímos juntos o futuro dos seus sonhos."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPE -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+            <p><a href="privacidade.html">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

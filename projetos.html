@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos Realizados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .navbar {
+            background-color: #6c757d;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .header {
+            background-color: #6c757d;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .projetos-container {
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .projeto-card {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .projeto-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .projeto-card .projeto-info {
+            padding: 15px;
+            text-align: center;
+        }
+        .projeto-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .projeto-card p {
+            font-size: 14px;
+            color: #666;
+        }
+        .projeto-card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #343a40;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .projeto-card a:hover {
+            background: #495057;
+        }
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="index.html">Início</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="admin.html">Admin</a>
+    </div>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Projetos Realizados</h1>
+        <p>Confira alguns dos projetos que tivemos a honra de construir com nossos clientes.</p>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="projetos-container" id="projetos">
+        <!-- Projeto 1 -->
+        <div class="projeto-card">
+            <img src="https://via.placeholder.com/300x200" alt="Projeto Residencial">
+            <div class="projeto-info">
+                <h3>Residência Moderna</h3>
+                <p>Projeto arquitetônico residencial com foco em funcionalidade e design contemporâneo.</p>
+                <a href="#">Ver Mais</a>
+            </div>
+        </div>
+        <!-- Projeto 2 -->
+        <div class="projeto-card">
+            <img src="https://via.placeholder.com/300x200" alt="Projeto Comercial">
+            <div class="projeto-info">
+                <h3>Escritório Sustentável</h3>
+                <p>Design sustentável para um ambiente de trabalho eficiente e confortável.</p>
+                <a href="#">Ver Mais</a>
+            </div>
+        </div>
+        <!-- Projeto 3 -->
+        <div class="projeto-card">
+            <img src="https://via.placeholder.com/300x200" alt="Projeto Industrial">
+            <div class="projeto-info">
+                <h3>Fábrica Inovadora</h3>
+                <p>Infraestrutura industrial projetada para maximizar a produção com segurança.</p>
+                <a href="#">Ver Mais</a>
+            </div>
+        </div>
+        <!-- Adicione mais projetos conforme necessário -->
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+            <p><a href="privacidade.html">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
