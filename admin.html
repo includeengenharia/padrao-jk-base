@@ -13,7 +13,15 @@
             margin: 0;
             padding: 0;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
+        #responsive-rows {
+            display: none;
+        }
+
         .navbar {
             background-color: #6c757d;
             color: white;
@@ -32,6 +40,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            flex: 1;
         }
         h1 {
             text-align: center;
@@ -44,11 +53,11 @@
         table td, table th {
             border: 1px solid #ddd;
             padding: 8px;
-            text-align: center; /* Alinha o texto horizontalmente */
-            vertical-align: middle; /* Centraliza o texto verticalmente */
+            text-align: center;
+            vertical-align: middle;
         }
         table tr:hover {
-            background-color: #f1f1f1; /* Adiciona um destaque ao passar o mouse */
+            background-color: #f1f1f1;
         }
         .executado {
             color: green;
@@ -59,21 +68,49 @@
             font-weight: bold;
         }
         button {
-            background-color: #343A40;
-            color: white;
+            color: black;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #6c757d;
-        }
+
         footer {
             background: #343a40;
             color: #ffffff;
             padding: 20px 0;
             text-align: center;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                display: none; /* Esconde a tabela tradicional */
+            }
+            .table-row {
+                border: 1px solid #ddd;
+                margin-bottom: 15px;
+                padding: 15px;
+                border-radius: 8px;
+                background: white;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .table-row div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 14px;
+            }
+            .table-row div span {
+                font-weight: bold;
+                color: #555;
+            }
+
+            #responsive-rows {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -88,6 +125,7 @@
     <!-- CONTEÚDO PRINCIPAL -->
     <div class="container">
         <h1>Área Administrativa</h1>
+        <!-- Tabela tradicional -->
         <table>
             <thead>
                 <tr>
@@ -97,11 +135,11 @@
                     <th>Telefone</th>
                     <th>Tipo de Projeto</th>
                     <th>Status</th>
+                    <th>Observações</th>
                     <th>Ações</th>
                 </tr>
             </thead>
-            <tbody id="contacts-table">
-                <!-- Exemplo de contato -->
+            <tbody>
                 <tr>
                     <td>1</td>
                     <td>João Silva</td>
@@ -109,9 +147,8 @@
                     <td>(11) 98765-4321</td>
                     <td>Residencial</td>
                     <td class="status nao-executado">Não Executado</td>
-                    <td>
-                        <button style="background-color: white; color: black" onclick="markAsExecuted(this)">Marcar como Executado</button>
-                    </td>
+                    <td>Quarto e Sala</td>
+                    <td><button onclick="markAsExecuted(this)">Marcar como Executado</button></td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -120,12 +157,35 @@
                     <td>(21) 91234-5678</td>
                     <td>Comercial</td>
                     <td class="status nao-executado">Não Executado</td>
-                    <td>
-                        <button style="background-color: white; color: black" onclick="markAsExecuted(this)">Marcar como Executado</button>
-                    </td>
+                    <td>Cozinha</td>
+                    <td><button onclick="markAsExecuted(this)">Marcar como Executado</button></td>
                 </tr>
             </tbody>
         </table>
+
+        <!-- Layout responsivo para dispositivos móveis -->
+        <div id="responsive-rows">
+            <div class="table-row">
+                <div><span>ID:</span> 1</div>
+                <div><span>Nome:</span> João Silva</div>
+                <div><span>E-mail:</span> joao@email.com</div>
+                <div><span>Telefone:</span> (11) 98765-4321</div>
+                <div><span>Tipo de Projeto:</span> Residencial</div>
+                <div><span>Status:</span> <span class="status nao-executado">Não Executado</span></div>
+                <div><span>Observações:</span> Quarto e Sala</div>
+                <div><button onclick="markAsExecuted(this)">Marcar como Executado</button></div>
+            </div>
+            <div class="table-row">
+                <div><span>ID:</span> 2</div>
+                <div><span>Nome:</span> Maria Oliveira</div>
+                <div><span>E-mail:</span> maria@email.com</div>
+                <div><span>Telefone:</span> (21) 91234-5678</div>
+                <div><span>Tipo de Projeto:</span> Comercial</div>
+                <div><span>Status:</span> <span class="status nao-executado">Não Executado</span></div>
+                <div><span>Observações:</span> Cozinha</div>
+                <div><button onclick="markAsExecuted(this)">Marcar como Executado</button></div>
+            </div>
+        </div>
     </div>
 
     <!-- RODAPÉ -->
@@ -137,21 +197,33 @@
 
     <script>
         function markAsExecuted(button) {
-            const row = button.closest('tr'); // Encontra a linha do botão
-            const statusCell = row.querySelector('.status'); // Encontra a célula de status
-            if (statusCell.textContent == 'Executado') {
-                statusCell.textContent = 'Não executado'; // Atualiza o texto
-                statusCell.classList.add('nao-executado');
-                statusCell.classList.remove('executado');
-                button.textContent = 'Marcar como executado'; // Atualiza o texto do botão
+            let statusSpan;
+
+            // Verifica se estamos na tabela ou no layout responsivo
+            if (window.innerWidth > 768) {
+                // Caso da tabela tradicional
+                const row = button.closest('tr');
+                statusSpan = row.querySelector('.status');
             } else {
-                statusCell.textContent = 'Executado'; // Atualiza o texto
-                statusCell.classList.remove('nao-executado');
-                statusCell.classList.add('executado');
-                button.textContent = 'Marcar como não executado'; // Atualiza o texto do botão
+                // Caso do layout responsivo
+                const card = button.closest('.table-row');
+                statusSpan = card.querySelector('.status');
             }
-            
+
+            // Atualiza o status e o texto do botão
+            if (statusSpan.textContent.trim() === 'Executado') {
+                statusSpan.textContent = 'Não Executado';
+                statusSpan.classList.add('nao-executado');
+                statusSpan.classList.remove('executado');
+                button.textContent = 'Marcar como Executado';
+            } else {
+                statusSpan.textContent = 'Executado';
+                statusSpan.classList.remove('nao-executado');
+                statusSpan.classList.add('executado');
+                button.textContent = 'Marcar como Não Executado';
+            }
         }
+
     </script>
 </body>
 </html>
